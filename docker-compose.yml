@@ -44,7 +44,7 @@ services:
  meshblu-http:
    image: octoblu/meshblu-core-protocol-adapter-http:v5.2.0
    ports:
-     - "9080:80"
+     - "80:80"
    restart: on-failure:10
    depends_on:
      - "redis"
@@ -98,7 +98,7 @@ services:
    networks:
      meshblu_v2_network:
    ports:
-     - "80:80"
+     - "9180:80"
    environment:
      - "PORT=80"
    env_file:
