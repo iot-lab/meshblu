@@ -7,10 +7,18 @@ you need docker:
 	sudo reboot # for group to take effect
 
 
-you need docker-compose 1.8.1
+you need docker-compose 1.8.1:
 
 	sudo apt-get remove docker-compose
 
 	sudo curl -o /usr/local/bin/docker-compose -L \
 	 "https://github.com/docker/compose/releases/download/1.8.1/docker-compose-$(uname -s)-$(uname -m)"
 	sudo chmod +x /usr/local/bin/docker-compose
+
+to bring everything up:
+
+	docker-compose up
+
+to check it works:
+
+	see e.g. https://github.com/emberscity/mqtt
