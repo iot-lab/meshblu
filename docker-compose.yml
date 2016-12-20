@@ -115,3 +115,5 @@ services:
 
 networks:
  meshblu_v2_network:
+   driver_opts:
+      com.docker.network.enable_ipv6: "true"
