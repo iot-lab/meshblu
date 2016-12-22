@@ -32,6 +32,12 @@ To bring everything up:
 
 	docker-compose up
 
+
+To check it works:
+
+	curl http://localhost/status
+
+
 ---
 
 ## Issues
