@@ -9,7 +9,7 @@ This project contains the configuration files needed for the deployment of a run
 - **Docker**: see [here](https://www.docker.com/products/overview) how to get it or run the following commands (`Debian`/`Ubuntu`):
 
 ```
-	sudo apt-get install docker
+	sudo apt-get install docker.io
 	sudo adduser $USER docker
 	sudo reboot # for group to take effect
 ```
