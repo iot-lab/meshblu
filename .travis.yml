@@ -1,17 +1,10 @@
-sudo: required
-
 services:
 - docker
 
-env:
-  DC_URL: https://github.com/docker/compose/releases/download
-  DC_VERSION: 1.8.1
-
+sudo: required
 before_install:
-  - curl -o docker-compose -L
-    "${DC_URL}/${DC_VERSION}/docker-compose-$(uname -s)-$(uname -m)"
-  - chmod +x docker-compose
-  - sudo mv -f docker-compose /usr/local/bin
+  - ./install.sh docker_compose
+  - docker-compose --version
 
 script:
   - docker-compose build
