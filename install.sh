@@ -17,7 +17,7 @@ install_docker_compose() {
 }
 
 install_meshblu_v2() {
-	docker-compose create
+	docker-compose up -d
 }
 
 main() {
