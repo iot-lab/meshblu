@@ -9,7 +9,7 @@ before_install:
 language: python
 
 script:
-  - docker-compose build
+  - docker-compose create
   - docker-compose start
   - curl http://localhost/status
   - docker-compose stop
