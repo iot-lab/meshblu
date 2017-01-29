@@ -6,6 +6,8 @@ before_install:
   - ./install.sh docker_compose
   - docker-compose --version
 
+language: python
+
 script:
   - docker-compose build
   - docker-compose start
