@@ -16,6 +16,10 @@ install_docker_compose() {
 	sudo mv -f docker-compose /usr/local/bin
 }
 
+install_meshblu_v2() {
+	docker-compose create
+}
+
 main() {
 	if [ "$1" ] ; then
 		set -x

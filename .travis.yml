@@ -4,12 +4,11 @@ services:
 sudo: required
 before_install:
   - ./install.sh docker_compose
-  - docker-compose --version
+  - ./install.sh meshblu_v2
 
 language: python
 
 script:
-  - docker-compose create
   - docker-compose start
   - curl http://localhost/status
   - docker-compose stop
