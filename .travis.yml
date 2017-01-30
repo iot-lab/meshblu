@@ -9,4 +9,5 @@ before_install:
 language: python
 
 script:
+  - sleep 20 # let meshblu start up
   - curl http://localhost/status
