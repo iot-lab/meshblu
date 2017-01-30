@@ -1,6 +1,12 @@
 # About
 
-This project contains the configuration files needed for the deployment of a running instance of Meshblu (v2).
+This project contains the configuration files needed for
+the deployment of a running instance of Meshblu (v2).
+
+[![build][build-icon]][build-page]
+
+[build-icon]: https://travis-ci.org/iot-lab/meshblu.svg?branch=master
+[build-page]: https://travis-ci.org/iot-lab/meshblu
 
 ---
 
