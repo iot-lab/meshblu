@@ -8,6 +8,9 @@ before_install:
 
 language: python
 
+install:
+  - pip install requests
+
 script:
-  - sleep 20 # let meshblu start up
-  - curl http://localhost/status
+  - py.test tests/test_broker_alive.py
+  - py.test
