@@ -36,12 +36,16 @@ install_clear() {
 }
 
 main() {
+	cd "$(dirname "$0")"
+	PROG=$(basename "$0")
+
 	if [ "$1" ] ; then
 		set -x
 		install_$1
 	else
-		echo "usage: $0 <component>"
-		grep -e '^install_.*(' $0 | sed 's/install_/\t/; s/(.*//'
+		echo "usage: $PROG <component>"
+		grep -e '^install_.*(' $PROG \
+		| sed 's/install_/\t/; s/(.*//'
 	fi
 }
 
