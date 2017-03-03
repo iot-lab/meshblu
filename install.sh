@@ -20,6 +20,21 @@ install_meshblu_v2() {
 	docker-compose up -d
 }
 
+install_start() {
+	docker-compose up -d || {
+		docker-compose down
+		docker-compose up -d
+	}
+}
+
+install_stop() {
+	docker-compose stop
+}
+
+install_clear() {
+	docker-compose down
+}
+
 main() {
 	if [ "$1" ] ; then
 		set -x
