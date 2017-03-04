@@ -17,7 +17,9 @@ install_docker-compose() {
 }
 
 install_meshblu() {
+	docker network create meshblu_default &> /dev/null || :
 	docker-compose create
+	docker network remove meshblu_default &> /dev/null || :
 }
 
 install_start() {
