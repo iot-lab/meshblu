@@ -7,7 +7,7 @@ the deployment of a running instance of Meshblu (v2).
 [![build][build-icon]][build-page]
 
 [build-icon]: https://travis-ci.org/iot-lab/meshblu.svg?branch=master
-[build-page]: https://travis-ci.org/iot-lab/meshblu
+[build-page]: https://travis-ci.org/iot-lab/meshblu/builds
 
 
 Requirements
@@ -18,9 +18,9 @@ Requirements
 	./install.sh docker
 
 
-  **docker-compose** (1.8.1): see [here][compose_install] for install, or run:
+  **docker-compose**: see [here][compose_install] for install, or run:
 
-	./install.sh docker_compose
+	./install.sh docker-compose
 
 
 Usage
@@ -28,12 +28,18 @@ Usage
 
 To bring everything up:
 
+	./install.sh start
+
+
+To run "non-daemon" with logs in your terminal:
+
 	docker-compose up
 
 
 To check it works:
 
-	curl http://localhost/status
+	pip install pytest
+	pytest
 
 
 Issues
