@@ -5,115 +5,89 @@ services:
    image: redis
    ports:
      - "6379:6379"
-   networks:
-     meshblu_v2_network:
 
  mongo:
    image: mongo
    ports:
      - "27017:27017"
-   networks:
-     meshblu_v2_network:
-
 
  meshblu-core:
    image: octoblu/meshblu-core-dispatcher:v12.3.0
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
       - "redis"
       - "mongo"
-   networks:
-     meshblu_v2_network:
-   env_file:
-     - ./meshblu.env
 
  meshblu-webhook:
    image: octoblu/meshblu-core-worker-webhook:v3.4.1
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
      - "redis"
      - "mongo"
-   networks:
-     meshblu_v2_network:
-   env_file:
-     - ./meshblu.env
 
  meshblu-http:
    image: octoblu/meshblu-core-protocol-adapter-http:v5.2.0
-   ports:
-     - "80:80"
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
      - "redis"
      - "mongo"
-   networks:
-     meshblu_v2_network:
+   ports:
+     - "80:80"
    environment:
      - "PORT=80"
-   env_file:
-     - ./meshblu.env
 
  meshblu-mqtt:
    image: octoblu/meshblu-core-protocol-adapter-mqtt:v2.1.1
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
      - "redis"
      - "mongo"
-   networks:
-     meshblu_v2_network:
    ports:
      - "1883:1883"
    environment:
      - "PORT=1883"
-   env_file:
-     - ./meshblu.env
 
  meshblu-coap:
    image: octoblu/meshblu-core-protocol-adapter-coap:v2.1.0
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
      - "redis"
      - "mongo"
-   networks:
-     meshblu_v2_network:
    ports:
      - "5683:5683/udp"
    environment:
      - "PORT=5683"
-   env_file:
-     - ./meshblu.env
 
  meshblu-socketio:
    image: octoblu/meshblu-core-protocol-adapter-socket.io:v9.1.0
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
      - "redis"
      - "mongo"
-   networks:
-     meshblu_v2_network:
    ports:
      - "9180:80"
    environment:
      - "PORT=80"
-   env_file:
-     - ./meshblu.env
 
  meshblu-websocket:
    image: octoblu/meshblu-core-protocol-adapter-websocket:v4.0.1
    restart: on-failure:10
+   env_file: meshblu.env
    depends_on:
      - "redis"
      - "mongo"
-   networks:
-     meshblu_v2_network:
    ports:
      - "5000:80"
    environment:
      - "PORT=80"
-   env_file:
-     - ./meshblu.env
 
 networks:
- meshblu_v2_network:
+ default:
    driver_opts:
       com.docker.network.enable_ipv6: "true"
