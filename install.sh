@@ -25,6 +25,7 @@ install_start() {
 		docker-compose down
 		docker-compose up -d
 	}
+	wait_for_startup &> /dev/null
 }
 
 install_stop() {
@@ -33,6 +34,10 @@ install_stop() {
 
 install_clear() {
 	docker-compose down
+}
+
+wait_for_startup() {
+	while ! curl localhost/status ; do sleep 1; done
 }
 
 main() {
