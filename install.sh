@@ -16,8 +16,8 @@ install_docker-compose() {
 	sudo mv -f docker-compose /usr/local/bin
 }
 
-install_meshblu_v2() {
-	docker-compose up -d
+install_meshblu() {
+	docker-compose create
 }
 
 install_start() {
