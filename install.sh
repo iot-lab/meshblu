@@ -6,7 +6,7 @@ install_docker() {
 	NOTE="reboot or logout/login for group to take effect"
 }
 
-install_docker_compose() {
+install_docker-compose() {
 	URL_BASE="https://github.com/docker/compose/releases/download"
 	VERSION=1.8.1
 
