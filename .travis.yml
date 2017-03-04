@@ -2,15 +2,14 @@ services:
 - docker
 
 sudo: required
-before_install:
-  - ./install.sh docker_compose
-  - ./install.sh meshblu_v2
 
 language: python
 
 install:
+  - ./install.sh docker-compose
+  - ./install.sh meshblu
+  - ./install.sh start
   - pip install requests
 
 script:
-  - py.test tests/test_broker_alive.py
   - py.test
