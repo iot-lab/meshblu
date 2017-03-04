@@ -1,6 +1,7 @@
 import pytest
 import requests
 
-def test_meshblu_is_alive(url):
-    ret = url.get("http://localhost/status", max_retries=10, sleep_time=2)
+def test_meshblu_is_alive():
+    ret = requests.get("http://localhost/status")
+    ret = ret.json()
     assert ret["meshblu"] == "online"
