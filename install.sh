@@ -40,18 +40,20 @@ wait_for_startup() {
 	while ! curl localhost/status ; do sleep 1; done
 }
 
-main() {
-	cd "$(dirname "$0")"
+usage() {
 	PROG=$(basename "$0")
-
-	if [ "$1" ] ; then
-		set -x
-		install_$1
-	else
-		echo "usage: $PROG <component>"
-		grep -e '^install_.*(' $PROG \
-		| sed 's/install_/\t/; s/(.*//'
-	fi
+	echo "usage: $PROG <command> [...]"
+	cat $PROG | grep -e '^install_' | sed 's/install_/\t/; s/(.*//'
 }
 
-main $1
+main() {
+	cd "$(dirname "$0")"
+
+	case $1 in ""|-h|--help) usage; exit 0;; esac
+
+	for cmd in $*; do
+		( set -x; install_$cmd )
+	done
+}
+
+main $*
