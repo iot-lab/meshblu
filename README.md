@@ -30,16 +30,18 @@ To bring everything up:
 
 	./install.sh start
 
+To stop everything:
 
-To run "non-daemon" with logs in your terminal:
-
-	docker-compose up
-
+	./install.sh stop
 
 To check it works:
 
 	pip install pytest
 	pytest
+
+To run "non-daemon" with logs in your terminal:
+
+	docker-compose up
 
 
 Issues
