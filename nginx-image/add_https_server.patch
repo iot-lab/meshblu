@@ -1,0 +1,19 @@
+--- docker-compose.yml	2017-09-05 10:53:48.322599950 +0200
++++ docker-compose.yml	2017-09-05 10:56:00.989662555 +0200
+@@ -87,6 +87,16 @@
+    environment:
+      - "PORT=80"
+ 
++ nginx-https:
++  build: nginx-image
++  links:
++    - meshblu-http
++  mem_limit: 2g
++  cpu_shares: 256
++  # restart: always
++  ports:
++    - "443:443"
++
+ networks:
+  default:
+    driver_opts:
