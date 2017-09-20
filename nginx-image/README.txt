@@ -76,3 +76,5 @@ below is a trace of operations using *.iot-lab.info cert
 	meshblu:# cd meshblu
 	meshblu:# docker-compose build nginx-https
 	meshblu:# ./install.sh stop start
+
+	mydevpc:$ curl https://meshblu.iot-lab.info/status
