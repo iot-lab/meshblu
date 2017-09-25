@@ -19,14 +19,6 @@ services:
       - "redis"
       - "mongo"
 
- meshblu-webhook:
-   image: octoblu/meshblu-core-worker-webhook:v3.4.1
-   restart: on-failure:10
-   env_file: meshblu.env
-   depends_on:
-     - "redis"
-     - "mongo"
-
  meshblu-http:
    image: octoblu/meshblu-core-protocol-adapter-http:v5.2.0
    restart: on-failure:10
@@ -62,6 +54,14 @@ services:
      - "5683:5683/udp"
    environment:
      - "PORT=5683"
+
+ meshblu-webhook:
+   image: octoblu/meshblu-core-worker-webhook:v3.4.1
+   restart: on-failure:10
+   env_file: meshblu.env
+   depends_on:
+     - "redis"
+     - "mongo"
 
  meshblu-socketio:
    image: octoblu/meshblu-core-protocol-adapter-socket.io:v9.1.0
