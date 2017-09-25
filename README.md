@@ -48,12 +48,9 @@ To run "non-daemon" with logs in your terminal:
 	docker-compose up
 
 
-Issues
-------
 
-Post here or... contact the [experts][meshblu_github] :)
-
+See also: [meshblu@github][meshblu_github]
 
 [docker_install]:  https://www.docker.com/products/overview
 [compose_install]: https://docs.docker.com/compose/install
-[meshblu_github]:  https://github.com/octoblu
+[meshblu_github]:  https://github.com/octoblu/meshblu
