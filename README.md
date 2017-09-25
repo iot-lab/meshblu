@@ -36,6 +36,10 @@ To stop everything:
 
 To check it works:
 
+	curl http://localhost/status
+
+	or
+
 	pip install pytest
 	pytest
 
