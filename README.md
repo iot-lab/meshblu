@@ -43,10 +43,28 @@ To check it works:
 	pip install pytest
 	pytest
 
+
+Debug / diagnostics
+-------------------
+
 To run "non-daemon" with logs in your terminal:
 
 	docker-compose up
 
+To check logs on a running system:
+
+	docker-compose logs
+
+To check if all seems to go fine:
+
+	docker-compose ps
+
+
+HTTPS support
+-------------
+
+For https support, we rely on a nginx web-server docker image.
+Check nginx-image/README.txt
 
 
 See also: [meshblu@github][meshblu_github]
