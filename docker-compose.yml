@@ -12,24 +12,14 @@ services:
      - "27017:27017"
 
  meshblu-core:
-   image: octoblu/meshblu-core-dispatcher:v12.3.0
-   restart: on-failure:10
+   image: octoblu/meshblu-core-dispatcher:v20.1.2
    env_file: meshblu.env
    depends_on:
       - "redis"
       - "mongo"
 
- meshblu-webhook:
-   image: octoblu/meshblu-core-worker-webhook:v3.4.1
-   restart: on-failure:10
-   env_file: meshblu.env
-   depends_on:
-     - "redis"
-     - "mongo"
-
  meshblu-http:
-   image: octoblu/meshblu-core-protocol-adapter-http:v5.2.0
-   restart: on-failure:10
+   image: octoblu/meshblu-core-protocol-adapter-http:v6.1.0
    env_file: meshblu.env
    depends_on:
      - "redis"
@@ -40,8 +30,7 @@ services:
      - "PORT=80"
 
  meshblu-mqtt:
-   image: octoblu/meshblu-core-protocol-adapter-mqtt:v2.1.1
-   restart: on-failure:10
+   image: octoblu/meshblu-core-protocol-adapter-mqtt:v2.1.4
    env_file: meshblu.env
    depends_on:
      - "redis"
@@ -52,8 +41,7 @@ services:
      - "PORT=1883"
 
  meshblu-coap:
-   image: octoblu/meshblu-core-protocol-adapter-coap:v2.1.0
-   restart: on-failure:10
+   image: octoblu/meshblu-core-protocol-adapter-coap:v2.1.1
    env_file: meshblu.env
    depends_on:
      - "redis"
@@ -62,6 +50,14 @@ services:
      - "5683:5683/udp"
    environment:
      - "PORT=5683"
+
+ meshblu-webhook:
+   image: octoblu/meshblu-core-worker-webhook:v3.4.1
+   restart: on-failure:10
+   env_file: meshblu.env
+   depends_on:
+     - "redis"
+     - "mongo"
 
  meshblu-socketio:
    image: octoblu/meshblu-core-protocol-adapter-socket.io:v9.1.0
